@@ -38,8 +38,8 @@ class JoblyApi {
 
   /** Get list of all companies. */
 
-  static async getCompanies() {
-    let res = await this.request(`companies/`);
+  static async getCompanies(filter="") {
+    let res = await this.request(`companies/`, (filter.name ? filter : ""));
     return res.companies;
   }
 
@@ -52,8 +52,8 @@ class JoblyApi {
 
   /** Get list of all jobs. */
 
-  static async getJobs() {
-    let res = await this.request(`jobs/`);
+  static async getJobs(filter="") {
+    let res = await this.request(`jobs/`, (filter.title ? filter : ""));
     return res.jobs;
   }
 
@@ -64,3 +64,5 @@ class JoblyApi {
 JoblyApi.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +
     "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
     "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";
+
+export default JoblyApi
