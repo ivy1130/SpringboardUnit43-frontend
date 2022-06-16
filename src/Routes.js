@@ -7,6 +7,7 @@ import JobList from "./JobList";
 import LoginForm from "./LoginForm";
 import SignUpForm from "./SignUpForm";
 import Logout from "./Logout";
+import PrivateRoute from "./PrivateRoutes";
 
 const Routes = () => {
   return (
@@ -14,15 +15,15 @@ const Routes = () => {
       <Route exact path="/"> 
         <Home />
       </Route>
-      <Route exact path="/companies"> 
+      <PrivateRoute exact path="/companies"> 
         <CompanyList />
-      </Route>
-      <Route exact path="/companies/:handle"> 
+      </PrivateRoute>
+      <PrivateRoute exact path="/companies/:handle"> 
         <CompanyDetail />
-      </Route>
-      <Route exact path="/jobs"> 
+      </PrivateRoute>
+      <PrivateRoute exact path="/jobs"> 
         <JobList />
-      </Route>
+      </PrivateRoute>
       <Route exact path="/login"> 
         <LoginForm />
       </Route>
