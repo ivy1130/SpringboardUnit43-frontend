@@ -8,6 +8,7 @@ import LoginForm from "./LoginForm";
 import SignUpForm from "./SignUpForm";
 import Logout from "./Logout";
 import PrivateRoute from "./PrivateRoutes";
+import Profile from "./Profile";
 
 const Routes = () => {
   return (
@@ -33,6 +34,9 @@ const Routes = () => {
       <Route exact path="/logout"> 
         <Logout />
       </Route>
+      <PrivateRoute exact path="/profile"> 
+        <Profile />
+      </PrivateRoute>
     </Switch>
   )
 }

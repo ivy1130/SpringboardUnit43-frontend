@@ -28,7 +28,7 @@ const NavBar = () => {
         </>) : ""}
       {user ? (
         <>
-        Logged in as: <span>{user.username}</span>
+        Logged in as: <NavLink to="/profile">{user.username}</NavLink>
         <NavLink exact to="/logout">
           Logout
         </NavLink>

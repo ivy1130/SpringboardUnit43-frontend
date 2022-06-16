@@ -39,13 +39,12 @@ function App() {
   }
 
   const logout = async () => {
-    await JoblyApi.logout()
     setUser("")
     setToken("")
   }
 
   return (
-    <UserContext.Provider value={{ user, token, signUp, login, logout }}>
+    <UserContext.Provider value={{ user, setUser, token, signUp, login, logout }}>
       <NavBar />
       <Routes />
     </UserContext.Provider>
