@@ -1,9 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom"
-import UserContext from "./UserContext";
 
-const LoginForm = () => {
-  const { login } = useContext(UserContext)
+
+const LoginForm = ({login}) => {
   const INITIAL_STATE = {
     username: "",
     password: "",

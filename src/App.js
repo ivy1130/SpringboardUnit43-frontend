@@ -14,6 +14,8 @@ function App() {
 
   const [user, setUser] = useState(null)
   const [token, setToken] = useLocalStorage("");
+  const [applicationIds, setApplicationIds] = useState(new Set([]))
+  console.log(user)
 
   useEffect(function loadUserInfo() {
     async function getCurrentUser() {
@@ -43,10 +45,22 @@ function App() {
     setToken("")
   }
 
+  /** Checks if a job has been applied for. */
+  function hasAppliedToJob(id) {
+    return applicationIds.has(id);
+  }
+
+  /** Apply to a job: make API call and update set of application IDs. */
+  function applyToJob(id) {
+    if (hasAppliedToJob(id)) return;
+    JoblyApi.applyToJob(user.username, id);
+    setApplicationIds(new Set([...applicationIds, id]));
+  }
+
   return (
-    <UserContext.Provider value={{ user, setUser, token, signUp, login, logout }}>
+    <UserContext.Provider value={{ user, setUser, hasAppliedToJob, applyToJob }}>
       <NavBar />
-      <Routes />
+      <Routes login={login} signup={signUp} logout={logout}/>
     </UserContext.Provider>
   );
 }

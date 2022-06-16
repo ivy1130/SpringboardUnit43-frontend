@@ -1,9 +1,8 @@
-import React, { useContext, useState } from "react";
-import UserContext from "./UserContext";
+import React, { useState } from "react";
+
 import "./SignUpForm.css"
 
-const SignUpForm = () => {
-  const { signUp } = useContext(UserContext)
+const SignUpForm = ({signUp}) => {
   const INITIAL_STATE = {
     username: "",
     password: "",

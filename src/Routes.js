@@ -10,7 +10,7 @@ import Logout from "./Logout";
 import PrivateRoute from "./PrivateRoutes";
 import Profile from "./Profile";
 
-const Routes = () => {
+const Routes = ({ login, signUp, logout }) => {
   return (
     <Switch>
       <Route exact path="/"> 
@@ -26,13 +26,13 @@ const Routes = () => {
         <JobList />
       </PrivateRoute>
       <Route exact path="/login"> 
-        <LoginForm />
+        <LoginForm login={login}/>
       </Route>
       <Route exact path="/signup"> 
-        <SignUpForm />
+        <SignUpForm signUp={signUp}/>
       </Route>
       <Route exact path="/logout"> 
-        <Logout />
+        <Logout logout={logout}/>
       </Route>
       <PrivateRoute exact path="/profile"> 
         <Profile />

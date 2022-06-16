@@ -11,8 +11,8 @@ const JobList = () => {
       <SearchForm setList={setJobs} filterBy="title"/>
       {jobs.length < 1 ? <p>No jobs found.</p> : ""}
       <ul>
-        {jobs.map(({ id, title, salary, equity}) => (
-            <JobCard title={title} salary={salary} equity={equity} key={id}/>
+        {jobs.map(({ id, title, salary, equity, companyName}) => (
+            <JobCard title={title} salary={salary} equity={equity} id={id} key={id} companyName={companyName}/>
         ))}
       </ul>
     </div>
